@@ -1,2 +1,7 @@
 db.sqlite3
 Pipfile
+*.log
+*.pot
+*.pyc
+__pycache__
+*.sqlite3
