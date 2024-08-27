@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'accounts',
     'pages',
+    'products',
     # third party
     'allauth',
     'allauth.account',
@@ -69,7 +70,7 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBacked'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ROOT_URLCONF = 'config.urls'
 
