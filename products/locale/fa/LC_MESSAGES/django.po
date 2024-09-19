@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-09 14:30+0330\n"
+"POT-Creation-Date: 2024-09-19 23:11+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,22 +49,32 @@ msgstr "ارزشیابی شما"
 msgid "Product detail of"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:49
-msgid "Add to cart"
+#: .\templates\products\product_detail.html:51
+#, fuzzy
+#| msgid "Add to cart"
+msgid "Add To Cart"
 msgstr "افزودن به سبد خرید"
 
-#: .\templates\products\product_detail.html:53
+#: .\templates\products\product_detail.html:57
 msgid "Categorys"
 msgstr "دسته بندی ها"
 
-#: .\templates\products\product_detail.html:68
+#: .\templates\products\product_detail.html:72
 msgid "description"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:144
+#: .\templates\products\product_detail.html:150
 msgid "Write your comment"
 msgstr "نظر خود را وارد کنید"
 
-#: .\templates\products\product_detail.html:149
+#: .\templates\products\product_detail.html:155
 msgid "Submit"
 msgstr "ارسال"
+
+#: .\templates\products\product_detail.html:159
+msgid "Login"
+msgstr "ورود"
+
+#: .\templates\products\product_detail.html:160
+msgid " to submit a Comment"
+msgstr "جهت ثبت نظر"
