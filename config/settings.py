@@ -41,16 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # local apps
+    # third party
+    'jalali_date',
+    'allauth',
+    'allauth.account',
     'crispy_forms',
     'crispy_bootstrap4',
+    # local apps
     'accounts',
     'pages',
     'products',
     'cart',
-    # third party
-    'allauth',
-    'allauth.account',
 ]
 
 MIDDLEWARE = [
