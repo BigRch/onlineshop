@@ -5,6 +5,8 @@
 {% load jalali_tags %}
 {% block content %}
 {% load i18n %}
+{% load fa_translation_tags %}
+{% load humanize %}
     <!-- Main Wrapper Start -->
     <div class="wrapper">
     <!-- Breadcrumb area Start -->
@@ -35,10 +37,10 @@
                             <div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
                                 <h3 class="product-title mb--20">{{ product.title }}</h3>
                                 <p class="product-short-description mb--20">
-                                    {{product.description}}
+                                    {{product.description|translate_num}}
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
-                                    <span class="money text-success">{{product.price}} تومان</span>
+                                    <span class="money text-success">{{product.price|intcomma:False|translate_num}} تومان</span>
                                     <span class="price-separator">-</span>
                                     <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>
                                 </div>
@@ -78,13 +80,13 @@
                                         <span>ویژگی ها</span>
                                     </a>
                                     <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="true">
-                                        <span>نظرات ({{product.comments.all|only_active_comments|length}})</span>
+                                        <span>نظرات ({{product.comments.all|only_active_comments|length|translate_num}})</span>
                                     </a>
                                 </div>
                                 <div class="tab-content product-data-tab__content" id="product-tabContent">
                                     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                         <div class="product-description text-justify">
-                                            <p>{{product.description}}</p>
+                                            <p>{{product.description|translate_num}}</p>
                                         </div>
                                     </div>
                                     <div class="tab-pane text-right" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
@@ -124,7 +126,7 @@
                                                                     <img src="{% static 'img/others/comment-1.jpg' %}" alt="Review Avatar" class="review__avatar p-2">
                                                                     <div>
                                                                         <div class="review__meta">
-                                                                            <span class="review__published-date">{{ comment.date_created|to_jalali:'%Y/%m/%d' }}</span>
+                                                                            <span class="review__published-date">{{ comment.date_created|to_jalali:'%Y/%m/%d'|translate_num }}</span>
                                                                             <span class="review__dash">-</span>
                                                                             <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         </div>

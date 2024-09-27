@@ -1,4 +1,6 @@
-{% load i18n %}        
+{% load i18n %}
+{% load humanize %}
+{% load fa_translation_tags %}        
         <aside class="mini-cart" id="miniCart">
             <div class="mini-cart-wrapper">
                 <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
@@ -11,7 +13,7 @@
                             <li class="mini-cart__product d-flex justify-content-between">
                                 <div class="mini-cart__product__image">
                                     <a href="#">
-                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                        <img src="{{item.product_obj.image.url}}" alt="products">
                                     </a>
                                 </div>
                                 <div class="mini-cart__product__content pt-2">
@@ -22,7 +24,7 @@
                                         </a>
                                     </span>
                                     <span class="mini-cart__product__quantity">
-                                        <span>{{ item.product_obj.price }} {% trans "$" %}</span> &#215; <span>{{item.quantity}}</span>
+                                        <span>{{ item.product_obj.price|intcomma:False|translate_num }} {% trans "$" %}</span> &#215; <span>{{item.quantity|translate_num}}</span>
                                     </span>
                                 </div>
                             </li>
@@ -30,7 +32,7 @@
                         </ul>
                         <div class="mini-cart__total">
                             <span>{% trans "Total" %}</span>
-                            <span class="ammount">{{ cart.get_total_price }} {% trans "$" %}</span>
+                            <span class="ammount">{{ cart.get_total_price|intcomma:False|translate_num }} {% trans "$" %}</span>
                         </div>
                         <div class="mini-cart__buttons">
                             <a href="{% url 'cart:cart_detail' %}" class="btn btn-fullwidth btn-bg-sand mb--20">{% trans "Go to cart" %}</a>

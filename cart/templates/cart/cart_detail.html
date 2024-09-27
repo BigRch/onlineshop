@@ -4,8 +4,10 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
-{% block title %}{% endblock title %}
+{% block title %}{% trans "Cart" %}{% endblock title %}
 {% block content %}
+{% load humanize %}
+{% load fa_translation_tags %}
 
     <div class="main-content-wrapper">
         <div class="page-content-inner ptb--80">
@@ -36,7 +38,7 @@
                                                         </a>
                                                     </td>
                                                     <td class="product-thumbnail text-left">
-                                                        <img src="assets/img/products/prod-10-70x88.jpg" alt="Product Thumnail">
+                                                        <img src="{{ product.product_obj.image.url }}" alt="Product Thumnail">
                                                     </td>
                                                     <td class="product-name">
                                                         <h3>
@@ -46,7 +48,7 @@
                                                     </td>
                                                     <td class="product-price">
                                                         <span class="product-price-wrapper">
-                                                            <span class="money">{{product.product_obj.price}} تومان</span>
+                                                            <span class="money">{{product.product_obj.price|intcomma:False|translate_num}} تومان</span>
                                                         </span>
                                                     </td>
                                                     <td class="product-quantity">
@@ -66,7 +68,7 @@
                                                     </td>
                                                     <td class="product-total-price">
                                                         <span class="product-price-wrapper">
-                                                            <span class="money">{{ product.total_price }}</span>
+                                                            <span class="money">{{ product.total_price|intcomma:False|translate_num }}</span>
                                                         </span>
                                                     </td>
                                                 </tr>
@@ -90,19 +92,11 @@
                                 <div class="cart-calculator">
                                     <div class="cart-calculator__item">
                                         <div class="cart-calculator__item--head">
-                                            {% comment %} <span>مجموع</span>
-                                        </div>
-                                        <div class="cart-calculator__item--value">
-                                            <span>۳۴۶,۰۰۰ تومان</span>
-                                        </div>
-                                    </div>
-                                    <div class="cart-calculator__item order-total">
-                                        <div class="cart-calculator__item--head"> {% endcomment %}
                                             <span>جمع کل</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
                                             <span class="product-price-wrapper">
-                                                <span class="money">{{ cart.get_total_price}}</span>
+                                                <span class="money">{{ cart.get_total_price|intcomma:False|translate_num}}</span>
                                             </span>
                                         </div>
                                     </div>
