@@ -4,6 +4,11 @@ from django.shortcuts import reverse
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
@@ -12,7 +17,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(verbose_name=_("Product Image"), upload_to='product/product_cover/', blank=True)
-
+    categories = models.ManyToManyField(Category, related_name='products', blank=True)
     datetime_creation = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
 

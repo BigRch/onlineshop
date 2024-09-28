@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Comment
+from .models import Product, Comment, Category
 
 class CommentsInline(admin.StackedInline):
     model = Comment
@@ -15,3 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['product', 'author', 'date_created', 'points', 'active', ]
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display =['name',]

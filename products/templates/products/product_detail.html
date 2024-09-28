@@ -38,6 +38,7 @@
                                 <h3 class="product-title mb--20">{{ product.title }}</h3>
                                 <p class="product-short-description mb--20">
                                     {{product.short_description|translate_num}}
+                                    
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
                                     <span class="money text-success">{{product.price|intcomma:False|translate_num}} تومان</span>
@@ -60,10 +61,9 @@
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
                                     <p><span class="m-0">{% trans "Categorys" %}:</span>
-                                        <a href="shop.html">لباس</a>,
-                                        <a href="shop.html">تابستانی</a>,
-                                        <a href="shop.html">گرم</a>,
-                                        <a href="shop.html">زنانه</a>
+                                        {% for category in product.categories.all %}
+                                        <a href="">{{category}}</a>,
+                                        {% endfor %}
                                     </p>
                                 </div>
                             </div>
