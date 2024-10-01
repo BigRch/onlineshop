@@ -1,5 +1,14 @@
 {% extends "_base.html" %}
-
 {% block content %}
 <h1>Home Page</h1>
+{% if user.is_authenticated %}
+    <h2>Your Favorite Products</h2>
+    <ul>
+        {% for product in favorites %}
+            <li>{{ product.title }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Please <a href="{% url 'account_login' %}">Log in</a> to see your favorite Products.</p>
+{% endif %}
 {% endblock content %}

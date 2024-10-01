@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.shortcuts import reverse
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
@@ -37,7 +38,7 @@ class Comment(models.Model):
         ('5', _('Perfect')),
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField(verbose_name=_("Comment Field"))
     points = models.CharField(max_length=10, choices=PRODUCT_POINT, verbose_name=_("What is your assessment?"))
 
