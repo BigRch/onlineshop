@@ -40,7 +40,7 @@
                           <div class="site-branding" style="margin-right: 30px;">
                               <a href="index.html" class="logo">
                                   <figure class="logo--normal d-none d-sm-block">
-                                      <img class="px-5" src="assets/img/codingyar_logo.png" style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
+                                      <img class="px-5" src="{% static 'img/kalabamared.png' %}" style="max-height: 70px; margin-bottom: -15px;" alt="Logo">
                                   </figure>
                               </a>
                           </div>
@@ -139,6 +139,34 @@
 
 {% endblock content %}
 {% include "cart/cart_sidebar.html" %}
+        <!-- Footer Start-->
+        <footer class="footer">
+            <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 text-center">
+                            <div class="footer-widget mb--50">
+                                <div class="textwidget">
+                                    <img src="{% static 'img/kalabamared.png' %}" style="max-height: 200px" alt="Logo">
+                                    <img src="{% static 'img/DaneshgahAzad.png' %}" style="max-height: 200px" alt="Logo">
+                                </div>
+                            </div>
+                            <div class="footer-widget mb--50 pb--1">
+                                <ul class="footer-menu">
+                                    <li><a href="">درباره ما</a></li>
+                                    <li><a href="">قوانین و مقررات</a></li>
+                                    <li><a href="">تماس با ما</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-widget">
+                                Pardis University
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End-->
     <!-- ************************* JS Files ************************* -->
     <!-- jQuery JS -->
     <script src="{% static 'js/vendor.js' %}"></script>
