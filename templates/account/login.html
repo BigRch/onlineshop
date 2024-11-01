@@ -1,16 +1,48 @@
 {% extends "_base.html" %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 
 {% block title %}
 Log In
 {% endblock title %}
 
 {% block content %}
-<h1>Log in</h1>
-<form action="" method = "post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type = "submit" value="Log In">
-</form>
+
+<div class="main-content-wrapper">
+    <div class="page-content-inner pt--75 pb--80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-sm--50">
+                    <div class="login-box">
+                        <h3 class="heading__tertiary mb--30">ورود</h3>
+                        <form class="form form--login" action="{% url 'account_login' %}" method="POST">
+                            {% if form.non_field_errors %}
+                                <div class="error">{{ form.non_field_errors }}</div>
+                            {% endif %}
+                            {% csrf_token %}
+                            <div class="form__group mb--20">
+                                <label class="form__label form__label--2" for="login_email">ایمیل شما <span class="required">*</span></label>
+                                <input type="text" class="form__input form__input--2" id="login_email" name="login">
+                            </div>
+                            <div class="form__group mb--20">
+                                <label class="form__label form__label--2" for="login_password">رمز عبور <span class="required">*</span></label>
+                                <input type="password" class="form__input form__input--2" id="login_password" name="password">
+                            </div>
+                            <a class="forgot-pass" href="{% url 'account_reset_password' %}">فراموشی رمز عبور؟</a>
+                            <div class="d-flex align-items-center mt--20">
+                                <div class="form__group">
+                                    <button class="btn btn-small btn-bg-red btn-color-white btn-hover-2" type="submit">{% trans "Log in" %}</button>
+                                </div>
+                            </div>
+                        </form>                        
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
