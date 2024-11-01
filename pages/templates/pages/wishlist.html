@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="main-content-wrapper">
+    <div class="page-content-inner ptb--80">
+        <div class="container">
+            <div class="row no-gutters mb--80">
+                <div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
+                    <h1>Wish list</h1>
+                    {% if user.is_authenticated %}
+                        <h2>Your Favorite Products</h2>
+                        <ul>
+                            {% for product in favorites %}
+                            <div class="col-12 col-4 product-main-image d-flex align-content-center">
+                                {% if product.image %}
+                                <img class="m-auto" style="max-height: 400px;" src="{{ product.image.url }}" alt="">
+                                <a href="{{ product.get_absolute_url }}"><li>{{ product.title }}</li></a>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                            <p>Please <a href="{% url 'account_login' %}">Log in</a> to see your favorite Products.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

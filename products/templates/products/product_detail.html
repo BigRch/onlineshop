@@ -89,9 +89,6 @@
                                     <a class="m-0 product-data-tab__link nav-link active" id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-selected="true">
                                         <span> {% trans "description" %}</span>
                                     </a>
-                                    <a class="m-0 product-data-tab__link nav-link" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-selected="true">
-                                        <span>ویژگی ها</span>
-                                    </a>
                                     <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="true">
                                         <span>نظرات ({{product.comments.all|only_active_comments|length|translate_num}})</span>
                                     </a>
@@ -100,31 +97,6 @@
                                     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                         <div class="product-description text-justify">
                                             <p>{{product.description|translate_num|safe}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane text-right" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
-                                        <div class="table-content table-responsive">
-                                            <table class="table shop_attributes">
-                                                <tbody>
-                                                    <tr>
-                                                        <th>وزن</th>
-                                                        <td>۴۳۰ گرم</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>سایز</th>
-                                                        <td>XL</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>رنگ</th>
-                                                        <td>
-                                                            <a href="shop-sidebar.html">مشکی</a>,
-                                                            <a href="shop-sidebar.html">سبز</a>,
-                                                            <a href="shop-sidebar.html">قرمز</a>,
-                                                            <a href="shop-sidebar.html">نارنجی</a>,
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
@@ -143,11 +115,10 @@
                                                                             <span class="review__dash">-</span>
                                                                             <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         </div>
-                                                                        <div class="product-rating">
-                                                                            <div class="m-0 star-rating star-five">
-                                                                                <span>Rated <strong class="rating">{{ product.stars }}</strong> out of 5</span>
-                                                                            </div>
+                                                                        <div class="review__meta">
+                                                                            امتیاز: {{comment.points}}/5
                                                                         </div>
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <p class="review__description text-right px-4 mr-5 pr-5">
@@ -189,9 +160,6 @@
                 </div>
             </div>
         </div>
-        <!-- Main Content Wrapper End -->
-
-        <!-- Search form Popup Start -->
         <div class="searchform__popup" id="searchForm">
             <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
             <div class="searchform__body">
@@ -202,12 +170,7 @@
                 </form>
             </div>
         </div>
-        <!-- Search form Popup End -->
-        <!-- Global Overlay Start -->
         <div class="ShoppingYar-global-overlay"></div>
-        <!-- Global Overlay End -->
-
-        <!-- Qicuk View Modal Start -->
         <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
