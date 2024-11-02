@@ -6,16 +6,6 @@
             <div class="row no-gutters mb--80">
                 <div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
                     <h1>Home Page</h1>
-                    {% if user.is_authenticated %}
-                        <h2>Your Favorite Products</h2>
-                        <ul>
-                            {% for product in favorites %}
-                                <li>{{ product.title }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% else %}
-                            <p>Please <a href="{% url 'account_login' %}">Log in</a> to see your favorite Products.</p>
-                    {% endif %}
                 </div>
             </div>
         </div>
